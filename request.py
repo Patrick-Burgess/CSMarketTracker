@@ -22,8 +22,10 @@ def ItemRequest(itemName) -> list:
     url = urlEndPoint + appid + currency + marketHash + marketHashDictionary[itemName]
     print(url)
     response = requests.get(url)
+    
     data = response.json()
-
+    if data.get("success") == True:
+        print("success for ",itemName)
     lowestPrice = float(data.get("lowest_price")[1:])  # Assumes £ sign
     volume = int(data.get("volume").replace(',', ''))
     medianPrice = float(data.get("median_price")[1:])
