@@ -1,9 +1,17 @@
-from request import ItemRequest
+from data_processor import GetTodaysData
+from dotenv import load_dotenv
+import os
 
-itemsList = ["snakebiteCase", "fractureCase", "stockholm2021ContendersStickerCapsule", "spectrum2Case", "recoilCase"]
+load_dotenv()
 
-itemsDict = {}
+botToken = os.getenv("BOT_TOKEN")
+chatID = os.getenv("CHAT_ID")
+print(chatID)
+#itemsList = ["snakebiteCase", "fractureCase", "stockholm2021ContendersStickerCapsule", "spectrum2Case", "recoilCase"]
+inventoryDict = {
+    #"ItemName": [price, quantity]
+    "snakebiteCase": [0.10, 500],
+    "fractureCase": [0.17, 1000],
+}
 
-
-for item in itemsList:
-    itemsDict[item] = ItemRequest(item)
+print(GetTodaysData(inventoryDict))

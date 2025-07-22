@@ -31,4 +31,3 @@ def ItemRequest(itemName) -> list:
     medianPrice = float(data.get("median_price")[1:])
 
     return [lowestPrice, medianPrice, volume]
-    
