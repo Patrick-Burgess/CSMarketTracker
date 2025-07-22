@@ -1,12 +1,5 @@
 from data_processor import GetTodaysData
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-botToken = os.getenv("BOT_TOKEN")
-chatID = os.getenv("CHAT_ID")
-print(chatID)
+from telegram import SendMessage, CreateMessage
 #itemsList = ["snakebiteCase", "fractureCase", "stockholm2021ContendersStickerCapsule", "spectrum2Case", "recoilCase"]
 inventoryDict = {
     #"ItemName": [price, quantity]
@@ -14,4 +7,6 @@ inventoryDict = {
     "fractureCase": [0.17, 1000],
 }
 
-print(GetTodaysData(inventoryDict))
+CreateMessage(GetTodaysData(inventoryDict), inventoryDict)
+
+SendMessage()
