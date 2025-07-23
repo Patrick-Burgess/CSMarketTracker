@@ -6,7 +6,6 @@ def GetTodaysData(inventoryDict):
     for item in inventoryDict:
         result = ItemRequest(item)
         if result is None:
-            errorFlag = True
             print(f"Error: Failed to fetch data for {item}. Skipping...")
             continue  # Skip this item if the request failed
         itemsDict[item] = result
@@ -14,10 +13,10 @@ def GetTodaysData(inventoryDict):
     todaysData = {
         #"CaseName": [Total Value, ProfitnLoss, PNL Percentage]
     }
-    if errorFlag:
-        return None
+
     
-    for item in inventoryDict:
+    valid_items = itemsDict.keys()
+    for item in valid_items:
         todaysData[item] = [None,None,None,None]
         #Current price
         todaysData[item][0] = itemsDict[item][1]

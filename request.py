@@ -19,22 +19,24 @@ marketHashDictionary = {
 }
 
 def ItemRequest(itemName):
-    
+    if itemName not in marketHashDictionary:
+        print(f"Error: {itemName}, not found in marketHashDictionary.")
+        return None
     url = urlEndPoint + appid + currency + marketHash + marketHashDictionary[itemName]
-    print(url)
-
     response = requests.get(url)
-    #Check for Error
-    if response.status_code != 200:
-        print(f"Error: Server Returned status code {response.status_code}")
+    data = response.json()
+    #Error Handling
+    
+    if not data or not data.get("success"):
+        print(f"Error: Invalid response structure for {itemName}")
+        return None
+    try:
+        lowestPrice = float(data.get("lowest_price")[1:])  # Assumes £ sign
+        volume = int(data.get("volume").replace(',', ''))
+        medianPrice = float(data.get("median_price")[1:])
+    except (ValueError, TypeError) as error:
+        print(f"Error parsing price data for {itemName}: {error}")
         return None
     
-
-    data = response.json()
-    if data.get("success") == True:
-        print("success for ",itemName)
-    lowestPrice = float(data.get("lowest_price")[1:])  # Assumes £ sign
-    volume = int(data.get("volume").replace(',', ''))
-    medianPrice = float(data.get("median_price")[1:])
 
     return [lowestPrice, medianPrice, volume]
