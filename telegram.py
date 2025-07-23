@@ -3,12 +3,21 @@ import os
 import requests
 
 def CreateMessage(todaysData, portfolio):
+    print(todaysData,portfolio)
+    message = ""
     for item in portfolio:
-        message = message = f"""📦 {item}
-• Buy Price: ${buy_price}
-• Quantity: {quantity}
-• Current Price: ${curr_price}
-"""
+        itemMessage = (
+            f"📦 *{item.replace('Case', ' Case')}*\n"
+            f"🔹 Bought: {portfolio[item][1]} at £{portfolio[item][0]:.2f}\n"
+            f"💸 Total Invested: £{portfolio[item][1] * portfolio[item][0]:.2f}\n"
+            f"💰 Current Price: £{todaysData[item][0]:.2f}\n"
+            f"📊 Total Value: £{todaysData[item][1]:.2f}\n"
+            f"📈 PNL: £{todaysData[item][2]:.2f} ({todaysData[item][3]:.2f}%)\n"
+            f"------------------------------\n"
+        )
+        message += itemMessage
+    return message
+
      
 
 

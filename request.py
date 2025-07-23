@@ -18,11 +18,18 @@ marketHashDictionary = {
     "clutchCase": "Clutch%20Case",
 }
 
-def ItemRequest(itemName) -> list:
+def ItemRequest(itemName):
+    
     url = urlEndPoint + appid + currency + marketHash + marketHashDictionary[itemName]
     print(url)
+
     response = requests.get(url)
+    #Check for Error
+    if response.status_code != 200:
+        print(f"Error: Server Returned status code {response.status_code}")
+        return None
     
+
     data = response.json()
     if data.get("success") == True:
         print("success for ",itemName)
