@@ -17,9 +17,7 @@ def CreateMessage(todaysData, portfolio):
         )
         message += itemMessage
     return message
-
      
-
 
 def SendMessage(message):
     load_dotenv()
