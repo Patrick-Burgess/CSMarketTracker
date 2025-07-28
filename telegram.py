@@ -25,6 +25,9 @@ def SendMessage(message):
     load_dotenv()
     botToken = os.getenv("BOT_TOKEN")
     chatID = os.getenv("CHAT_ID")
+    if not botToken or not chatID:
+        raise ValueError("Missing required environment variables.")
+
     url = f'https://api.telegram.org/bot{botToken}/sendMessage'
 
     payload = {
