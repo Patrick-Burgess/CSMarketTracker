@@ -15,7 +15,7 @@ inventoryDict = {
 }
 todaysData = GetTodaysData(inventoryDict)
 #Store Data code
-#depositdata(todaysData)
+depositdata(todaysData)
 
 if todaysData == None:
     print("Error: Failed to retrieve today's data. Exiting...")
