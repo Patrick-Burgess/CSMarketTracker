@@ -22,4 +22,4 @@ if todaysData == None:
     sys.exit()
 
 
-#SendMessage(CreateMessage(todaysData, inventoryDict))
+SendMessage(CreateMessage(todaysData, inventoryDict))
