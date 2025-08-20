@@ -1,6 +1,8 @@
 import sys
 from data_processor import GetTodaysData
 from telegram import SendMessage, CreateMessage
+from historicaldata import depositdata
+    
 
 inventoryDict = {
     #"ItemName": [price, quantity]
@@ -12,7 +14,12 @@ inventoryDict = {
     "clutchCase":[0.30, 500]
 }
 todaysData = GetTodaysData(inventoryDict)
+#Store Data code
+depositdata(todaysData)
+
 if todaysData == None:
     print("Error: Failed to retrieve today's data. Exiting...")
     sys.exit()
-SendMessage(CreateMessage(todaysData, inventoryDict))
+
+
+#SendMessage(CreateMessage(todaysData, inventoryDict))

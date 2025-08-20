@@ -1,7 +1,34 @@
 {
     "YYYY-MM-DD": {
-        "case":{
-            "price": 0.0
+        "case": {
+            "price": 0.0,
+            "volume": 0
+        }
+    },
+    "2025-08-21": {
+        "snakebiteCase": {
+            "price": 0.69,
+            "volume": 19456
+        },
+        "fractureCase": {
+            "price": 0.34,
+            "volume": 118818
+        },
+        "stockholm2021ContendersStickerCapsule": {
+            "price": 2.87,
+            "volume": 273
+        },
+        "spectrum2Case": {
+            "price": 3.35,
+            "volume": 3983
+        },
+        "recoilCase": {
+            "price": 0.28,
+            "volume": 103831
+        },
+        "clutchCase": {
+            "price": 1.09,
+            "volume": 8051
         }
     }
 }

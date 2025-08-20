@@ -17,7 +17,7 @@ def GetTodaysData(inventoryDict):
     
     valid_items = itemsDict.keys()
     for item in valid_items:
-        todaysData[item] = [None,None,None,None]
+        todaysData[item] = [None,None,None,None,None]
         #Current price
         todaysData[item][0] = itemsDict[item][1]
         #Total Value
@@ -27,5 +27,7 @@ def GetTodaysData(inventoryDict):
         todaysData[item][2] =  todaysData[item][1] - initialInvestValue
         #PNL%
         todaysData[item][3] = (todaysData[item][1] - initialInvestValue)/initialInvestValue*100
+        #Current Volume
+        todaysData[item][4] = itemsDict[item][2]
 
     return todaysData
