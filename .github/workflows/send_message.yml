@@ -28,10 +28,3 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-      - name: Commit JSON update
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add historical_data.json
-          git commit -m "Update history.json [skip ci]" || echo "No changes to commit"
-          git push
