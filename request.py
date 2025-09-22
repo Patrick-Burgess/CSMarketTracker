@@ -16,6 +16,8 @@ marketHashDictionary = {
     "spectrum2Case": "Spectrum%202%20Case",
     "recoilCase": "Recoil%20Case",
     "clutchCase": "Clutch%20Case",
+    "austin2025ChallengersAutographCapsule": "Austin%202025%20Challengers%20Autograph%20Capsule",
+    "austin2025LegendsStickerCapsule": "Austin%202025%20Legends%20Sticker%20Capsule"
 }
 
 def ItemRequest(itemName):
