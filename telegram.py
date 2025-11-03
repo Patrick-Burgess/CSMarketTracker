@@ -2,9 +2,23 @@ from dotenv import load_dotenv
 import os
 import requests
 
+
+
+
+
+
 def CreateMessage(todaysData, portfolio):
     print(todaysData,portfolio)
     message = ""
+
+    totalPortfolioValue = sum(todaysData[item][1] for item in portfolio)
+    message += (
+        f"📊 *Portfolio Update*\n"
+        f"💰 Total Portfolio Value: £{totalPortfolioValue:.2f}\n"
+        f"------------------------------\n"
+
+    )
+
     for item in portfolio:
         itemMessage = (
             f"📦 *{item.replace('Case', ' Case')}*\n"
