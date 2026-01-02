@@ -2,7 +2,7 @@ import sys
 from data_processor import GetTodaysData
 from telegram import SendMessage, CreateMessage
 from historicaldata import depositdata
-    
+# Trivial comment    
 
 inventoryDict = {
     #"ItemName": [price, quantity]
