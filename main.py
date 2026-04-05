@@ -3,7 +3,7 @@ from data_processor import GetTodaysData
 from telegram import SendMessage, CreateMessage
 from historicaldata import depositdata
 # Trivial comment    
-
+# Second trivial Commnet
 inventoryDict = {
     #"ItemName": [price, quantity]
     "snakebiteCase": [0.10, 500],
